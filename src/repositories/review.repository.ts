@@ -12,7 +12,7 @@ class ReviewRepository {
                                     .populate('userId')
                                     .populate('courseId')
             return reviews
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -23,7 +23,7 @@ class ReviewRepository {
                                     .populate('userId')
                                     .populate('courseId')
             return reviews
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -63,7 +63,7 @@ class ReviewRepository {
                     }
                 });
             return review
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -104,7 +104,7 @@ class ReviewRepository {
                     }
                 });
             return review
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -146,7 +146,7 @@ class ReviewRepository {
                 });
         
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

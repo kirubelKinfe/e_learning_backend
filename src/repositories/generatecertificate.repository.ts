@@ -64,7 +64,7 @@ class GenerateCertificateRepository {
     async GenerateCertificate({ courseId, userId}: { courseId: string, userId: string}): Promise<any>  {
         try{
             const user = await User.findById(userId);
-            const course: CurrentCourseInterface = await Course.findById<CurrentCourseInterface>(courseId).populate('instructorId');
+            const course: CurrentCourseInterface | null = await Course.findById<CurrentCourseInterface>(courseId).populate('instructorId');
         
             if (!user || !course) {
               throw new ErrorResponse("User or course not found", 404)
@@ -194,7 +194,10 @@ class GenerateCertificateRepository {
                   if (error) {
                     throw new ErrorResponse("Failed to upload certificate", 500)
                   } else {
-                    url = result.secure_url
+                    if(result === undefined) {
+                      throw new ErrorResponse("No Result found", 500)
+                    }
+                    url = result?.secure_url
                     console.log(url)   
                     await CourseProgress.updateOne({ userId, courseId },
                         {
@@ -215,7 +218,7 @@ class GenerateCertificateRepository {
         
             doc.end();
             return url    
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

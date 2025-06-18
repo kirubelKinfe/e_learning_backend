@@ -17,7 +17,7 @@ class AuthService {
     try {
       const {user, token} = await this.repository.RegisterUser(newUser);
       return FormateData({status: true, token });
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class AuthService {
     try {
       const token = await this.repository.LoginUser(loginData);
       return FormateData( {status: true, token: token} );
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }
@@ -35,7 +35,7 @@ class AuthService {
     try {
       const data = await this.repository.ForgotPassword(email);
       return FormateData( {status: true, data: data} );
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }
@@ -44,7 +44,7 @@ class AuthService {
     try {
       const data = await this.repository.ResetPassword(password, email);
       return FormateData( {status: true, data: data} );
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

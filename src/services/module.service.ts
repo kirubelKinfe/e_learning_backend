@@ -16,7 +16,7 @@ class ModuleService {
     try {
       const modules = await this.repository.GetModules();
       return FormateData({status: true, data: modules });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class ModuleService {
     try {
       const module = await this.repository.AddModule(newModule);
       return FormateData({status: true, data: module });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class ModuleService {
     try {
       const updateStatus = await this.repository.UpdateModule(moduleInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class ModuleService {
     try {
       const data = await this.repository.DeleteModule(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

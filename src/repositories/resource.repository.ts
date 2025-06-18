@@ -10,7 +10,7 @@ class ResourceRepository {
         try{
             const resources = await Resource.find()
             return resources
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -36,7 +36,7 @@ class ResourceRepository {
                     }
                 });
             return resource
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -59,7 +59,7 @@ class ResourceRepository {
                             }
                         });
             return resource
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -81,7 +81,7 @@ class ResourceRepository {
         
             const status = await Resource.deleteOne({ _id })
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

@@ -15,7 +15,7 @@ class CourseService {
     try {
       const courses = await this.repository.GetCourses(query);
       return FormateData({status: true, data: courses });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -25,7 +25,7 @@ class CourseService {
     try {
       const course = await this.repository.GetCourseById(courseId);
       return FormateData({status: true, data: course });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -35,7 +35,7 @@ class CourseService {
     try {
       const course = await this.repository.GetCourseByDepartment(department);
       return FormateData({status: true, data: course });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -45,7 +45,7 @@ class CourseService {
     try {
       const course = await this.repository.CreateCourse(newCourse);
       return FormateData({status: true, data: course });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -55,7 +55,7 @@ class CourseService {
     try {
       const updateStatus = await this.repository.PublishCourse(publishCourse);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -65,7 +65,7 @@ class CourseService {
     try {
       const data = await this.repository.DeleteCourse(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

@@ -23,7 +23,7 @@ export const getUsers = async (req: Request, res: Response, next: NextFunction) 
     try {
         const { data } = await service.GetUsers();
         return res.json(data);
-    } catch (error) {
+    } catch (error: any) {
         return next(new ErrorResponse(error.message, 400))
     }
 }
@@ -50,7 +50,7 @@ export const updateUser = async (req: CustomUserUpdateRequest, res: Response, ne
         await validateUserUpdate(req.body)
         const { data } = await service.UpdateUser(req.body);
         return res.json(data);
-    } catch (error) {
+    } catch(error: any){
         return next(new ErrorResponse(error.message, 400))
     }
 }
@@ -65,7 +65,7 @@ export const deleteUser = async (req: CustomRequest, res: Response, next: NextFu
         const { data } = await service.DeleteUser(userId);
         return res.json(data);
         
-    } catch (error) {
+    } catch(error: any){
         return next(new ErrorResponse(error.message, 400))
     }
 }

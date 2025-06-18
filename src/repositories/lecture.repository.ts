@@ -13,7 +13,7 @@ class LectureRepository {
                         path: 'resources'
                       });
             return lectures
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -25,7 +25,7 @@ class LectureRepository {
                         path: 'resources'
                       });
             return lectures
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -50,7 +50,7 @@ class LectureRepository {
                     }
                 });
             return lecture
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -88,7 +88,7 @@ class LectureRepository {
                         }
                     });
             return updateStatus
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -109,7 +109,7 @@ class LectureRepository {
                             }
                         });
             return updateStatus
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -137,7 +137,7 @@ class LectureRepository {
             const status = await Lecture.deleteOne({_id})
             console.log(status)
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

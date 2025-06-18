@@ -10,7 +10,7 @@ class VoteRepository {
         try{
             const votes = await Vote.find()
             return votes
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -35,7 +35,7 @@ class VoteRepository {
                     }
                 });
             return vot
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -59,7 +59,7 @@ class VoteRepository {
 
             const status = await Vote.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

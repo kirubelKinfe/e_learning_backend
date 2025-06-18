@@ -16,7 +16,7 @@ class QuestionService {
     try {
       const questions = await this.repository.GetQuestions();
       return FormateData({status: true, data: questions });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class QuestionService {
     try {
       const question = await this.repository.AddQuestion(newQuestion);
       return FormateData({status: true, data: question });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class QuestionService {
     try {
       const updateStatus = await this.repository.UpdateQuestion(questionInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class QuestionService {
     try {
       const data = await this.repository.DeleteQuestion(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

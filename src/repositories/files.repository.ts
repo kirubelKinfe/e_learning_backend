@@ -20,7 +20,7 @@ class FilesRepository {
                 return  result
             })
             return response    
-        } catch (error) {
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }  
     }

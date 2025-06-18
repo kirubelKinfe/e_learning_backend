@@ -16,7 +16,7 @@ class GenerateCertificateService {
     try {
       const data = await this.repository.GenerateCertificate(certificateData);
       return FormateData({status: true, data: data });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }

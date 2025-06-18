@@ -15,7 +15,7 @@ class EnrollmentService {
     try {
       const enrollments = await this.repository.GetEnrollments();
       return FormateData({status: true, data: enrollments });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -25,7 +25,7 @@ class EnrollmentService {
     try {
       const enrollment = await this.repository.GetEnrollment(userId, courseId);
       return FormateData({status: true, data: enrollment });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -35,7 +35,7 @@ class EnrollmentService {
     try {
       const enrollment = await this.repository.AddEnrollment(newEnrollment);
       return FormateData({status: true, data: enrollment });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -45,7 +45,7 @@ class EnrollmentService {
     try {
       const data = await this.repository.DeleteEnrollment(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

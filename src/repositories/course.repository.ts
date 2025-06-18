@@ -115,7 +115,7 @@ class CourseRepository {
                 message: results.length === 0 ? "No Data Found" : "Data fetched successfully",
                 data: results,
             };
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -167,7 +167,7 @@ class CourseRepository {
                         ]
                       })
             return courses
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -202,7 +202,7 @@ class CourseRepository {
                         populate: { path: 'replies' }
                       })
             return courses
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -228,7 +228,7 @@ class CourseRepository {
                     }
                 });
             return course
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -249,7 +249,7 @@ class CourseRepository {
                         });
 
             return course
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -269,7 +269,7 @@ class CourseRepository {
 
             const status = await Course.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

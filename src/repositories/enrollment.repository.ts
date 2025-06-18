@@ -62,7 +62,7 @@ class EnrollmentRepository {
         try{
             const enrollments = await Enrollment.find()
             return enrollments
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -71,7 +71,7 @@ class EnrollmentRepository {
         try{
             const enrollments = await Enrollment.find({ userId, courseId })
             return enrollments
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -84,7 +84,7 @@ class EnrollmentRepository {
                 throw new ErrorResponse("User Already Enrolled", 400)
             }
             
-            const course: CurrentCourseInterface = await Course.findOne<CurrentCourseInterface>({ _id: courseId }).populate({
+            const course: CurrentCourseInterface | null = await Course.findOne<CurrentCourseInterface>({ _id: courseId }).populate({
                 path: 'modules',
                 populate: [
                     {
@@ -147,7 +147,7 @@ class EnrollmentRepository {
                 userId, courseId
             })
             return enrollment
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -179,7 +179,7 @@ class EnrollmentRepository {
 
             const status = await Enrollment.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

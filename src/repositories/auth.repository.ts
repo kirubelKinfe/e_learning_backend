@@ -13,7 +13,7 @@ class AuthRepository {
             })
             const token = sendToken(user)
             return {user, token}
-        }catch(error){
+        } catch (error: any) {
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -37,7 +37,7 @@ class AuthRepository {
                     return token
                 }
             }
-        }catch(error){
+        } catch (error: any) {
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -62,14 +62,13 @@ class AuthRepository {
                     resetUrl: resetUrl
                 })
                 return "Email Sent Successfully"
-            } catch (error) {
-                user.resetPasswordToken = undefined;
-                user.resetPasswordExpire = undefined;
+            } catch (error: any) {
+                user.resetPasswordToken = "";
 
                 await user.save()
                 throw new ErrorResponse("Email could not be send", 500)
             }
-        }catch(error){
+        } catch (error: any) {
             throw new ErrorResponse(error.message, 400)
         }
     } 
@@ -87,8 +86,7 @@ class AuthRepository {
             }
 
             user.password = password
-            user.resetPasswordToken = undefined;
-            user.resetPasswordExpire = undefined;
+            user.resetPasswordToken = "";
     
             await user.save()
 

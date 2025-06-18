@@ -13,7 +13,7 @@ class ReplyRepository {
                         path: 'votes',
                       });
             return replies
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -38,7 +38,7 @@ class ReplyRepository {
                     }
                 });
             return reply
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -57,7 +57,7 @@ class ReplyRepository {
                             }
                         });
             return reply
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -84,7 +84,7 @@ class ReplyRepository {
             await Vote.deleteMany({ replyId: _id})
             const status = await Reply.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

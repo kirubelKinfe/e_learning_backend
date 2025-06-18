@@ -1,5 +1,4 @@
 
-import {ErrorResponse} from '../utils';
 import { Request, Response, NextFunction } from "express";
 import { validateUserRegister, validateUserLogin, validateForgotPassword, validateResetToken } from '../validations';
 import { UserLogin, UserRegister } from '../interfaces';

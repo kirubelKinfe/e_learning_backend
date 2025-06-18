@@ -16,7 +16,7 @@ class LectureService {
     try {
       const lectures = await this.repository.GetLectures();
       return FormateData({status: true, data: lectures });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class LectureService {
     try {
       const lectures = await this.repository.GetLectureWithId(lectureId);
       return FormateData({status: true, data: lectures });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class LectureService {
     try {
       const lecutre = await this.repository.AddLecture(newLecture);
       return FormateData({status: true, data: lecutre });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class LectureService {
     try {
       const updateStatus = await this.repository.UploadVideoLecture(lectureInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -55,7 +55,7 @@ class LectureService {
     try {
       const updateStatus = await this.repository.UpdateLecture(lectureInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -65,7 +65,7 @@ class LectureService {
     try {
       const data = await this.repository.DeleteLecture(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

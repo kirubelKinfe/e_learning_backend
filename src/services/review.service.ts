@@ -15,7 +15,7 @@ class ReviewService {
     try {
       const reviews = await this.repository.GetReviews();
       return FormateData({status: true, data: reviews });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -24,7 +24,7 @@ class ReviewService {
     try {
       const reviews = await this.repository.GetCourseReviews(courseId);
       return FormateData({status: true, data: reviews });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -34,7 +34,7 @@ class ReviewService {
     try {
       const review = await this.repository.AddReview(newReview);
       return FormateData({status: true, data: review });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -44,7 +44,7 @@ class ReviewService {
     try {
       const updateStatus = await this.repository.UpdateReview(reviewInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -54,7 +54,7 @@ class ReviewService {
     try {
       const data = await this.repository.DeleteReview(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

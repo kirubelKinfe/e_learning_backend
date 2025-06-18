@@ -15,7 +15,7 @@ class FilesService {
     try {
       const data = await this.repository.DeleteFile(public_id);
       return FormateData({ status: true, data});
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

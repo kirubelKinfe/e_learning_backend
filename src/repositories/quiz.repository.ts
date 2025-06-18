@@ -14,7 +14,7 @@ class QuizRepository {
                         populate: { path: 'answers' }
                       });
             return quizzes
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -39,7 +39,7 @@ class QuizRepository {
                     }
                 });
             return quiz
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -59,7 +59,7 @@ class QuizRepository {
                             }
                         });
             return quiz
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -84,7 +84,7 @@ class QuizRepository {
             
             const status = await Quiz.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

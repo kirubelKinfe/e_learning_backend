@@ -59,5 +59,8 @@ const start = async () => {
 };
   
 start();
+
+// Export the Express app for Vercel
+export default app;
   
   

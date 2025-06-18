@@ -14,7 +14,7 @@ class CourseProgressService {
     try {
       const courseprogress = await this.repository.GetCourseProgress(courseId, userId);
       return FormateData({status: true, data: courseprogress });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -24,7 +24,7 @@ class CourseProgressService {
     try {
       const updateStatus = await this.repository.UpdateCourseProgress(courseId, userId, lectureId, progress);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }

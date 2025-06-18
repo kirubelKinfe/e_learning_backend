@@ -14,7 +14,7 @@ interface CustomRequest extends Request {
 }
 
 interface CustomResponse extends Response {
-  results : {
+  results?: {
     total: number,
     pagination: {
       next?: {

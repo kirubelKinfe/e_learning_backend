@@ -5,7 +5,7 @@ import { ErrorResponse } from "../utils";
 
 interface CustomRequest extends Request {
     body: any;
-    user: any
+    user?: any
 }
 
 const service = new UserService()

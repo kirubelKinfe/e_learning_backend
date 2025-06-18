@@ -1,0 +1,31 @@
+<%- include('./includes/header.ejs') %>
+
+<div
+  style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
+>
+  <h3>E-smart reset your password</h3>
+  <p>Hello, <%= receiver %></p>
+  <p>Someone recently requested a password change for your E-smart
+    account. If this was you, you can set a new password here:</p>
+  <a 
+    href=<%= resetUrl %> 
+    clicktracking=off 
+    style="    
+            padding: 10px 20px; 
+            background: #0e114f; 
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px
+        "
+    >
+    Reset Password</a>
+  <p>If you don&apos;t want to change your password or didn&apos;t
+    request this, just ignore and delete this message.</p>  
+  <p>To keep your account secure, please don&apos;t forward this email
+    to anyone.</p>  
+</div>
+
+<div>
+  <p>Happy, Learning</p>
+</div>

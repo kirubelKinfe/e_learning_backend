@@ -16,7 +16,7 @@ class QuizService {
     try {
       const quizzes = await this.repository.GetQuizzes();
       return FormateData({status: true, data: quizzes });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class QuizService {
     try {
       const quiz = await this.repository.AddQuiz(newQuiz);
       return FormateData({status: true, data: quiz });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class QuizService {
     try {
       const updateStatus = await this.repository.UpdateQuiz(quizInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class QuizService {
     try {
       const data = await this.repository.DeleteQuiz(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

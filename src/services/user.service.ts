@@ -16,7 +16,7 @@ class UserService {
     try {
       const users = await this.repository.GetUsers();
       return FormateData({status: true, data: users });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class UserService {
     try {
       const user = await this.repository.GetUserById(userId);
       return FormateData({status: true, data: user });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class UserService {
     try {
       const updateStatus = await this.repository.UpdateUser(updateData);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class UserService {
     try {
       const data = await this.repository.DeleteUser(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

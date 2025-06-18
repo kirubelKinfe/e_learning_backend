@@ -16,7 +16,7 @@ class ResourceService {
     try {
       const resources = await this.repository.GetResources();
       return FormateData({status: true, data: resources });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class ResourceService {
     try {
       const resource = await this.repository.AddResource(newResource);
       return FormateData({status: true, data: resource });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class ResourceService {
     try {
       const resource = await this.repository.UpdateResource(updateResource);
       return FormateData({status: true, data: resource });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class ResourceService {
     try {
       const data = await this.repository.DeleteResource(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

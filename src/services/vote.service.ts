@@ -16,7 +16,7 @@ class VoteService {
     try {
       const votes = await this.repository.GetVotes();
       return FormateData({status: true, data: votes });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class VoteService {
     try {
       const quiz = await this.repository.AddVote(newVote);
       return FormateData({status: true, data: quiz });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class VoteService {
     try {
       const data = await this.repository.DeleteVote(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

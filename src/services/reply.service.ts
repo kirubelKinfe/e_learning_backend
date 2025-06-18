@@ -16,7 +16,7 @@ class ReplyService {
     try {
       const replies = await this.repository.GetReplies();
       return FormateData({status: true, data: replies });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -26,7 +26,7 @@ class ReplyService {
     try {
       const reply = await this.repository.AddReply(newReply);
       return FormateData({status: true, data: reply });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -36,7 +36,7 @@ class ReplyService {
     try {
       const updateStatus = await this.repository.UpdateReply(replyInfo);
       return FormateData({status: true, data: updateStatus });
-    } catch (error) {
+    } catch (error: any) {
         throw new ErrorResponse(error.message, 400)
     }
   }
@@ -46,7 +46,7 @@ class ReplyService {
     try {
       const data = await this.repository.DeleteReply(_id);
       return FormateData(data);
-    } catch (error) {
+    } catch (error: any) {
       throw new ErrorResponse(error.message, 400)
     }
   }

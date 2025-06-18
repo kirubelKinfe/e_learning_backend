@@ -17,7 +17,7 @@ class DiscussionRepository {
                                     .populate('courseId')
                       
             return discussions
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -42,7 +42,7 @@ class DiscussionRepository {
                     }
                 });
             return discussion
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -63,7 +63,7 @@ class DiscussionRepository {
                             }
                         });
             return discussion
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -91,7 +91,7 @@ class DiscussionRepository {
             await Vote.deleteMany({ discussionId: _id })
             const status = await Discussion.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

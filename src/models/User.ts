@@ -1,3 +1,4 @@
+// @ts-nocheck
 import crypto from 'crypto'
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
@@ -63,9 +64,18 @@ UserSchema.methods.matchPasswords = async function(password: string) {
 }
 
 UserSchema.methods.getSignedToken = function() {
+    
+    if (!process.env.JWT_SECRET) {
+      throw new Error('JWT_SECRET is not defined in the environment variables');
+    }
+    
+    if (!process.env.JWT_EXPIRE) {
+      throw new Error('JWT_EXPIRE is not defined in the environment variables');
+    }
+
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE
-    })
+        expiresIn: process.env.JWT_EXPIRE,
+    });
 }
 
 UserSchema.methods.getResetPasswordToken = function() {

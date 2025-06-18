@@ -115,14 +115,14 @@ export interface PublishCourseInterface extends Document {
 
 export interface LectureProgressInterface extends Document {
     lectureId: ObjectId,
-    progress: number,
+    progress?: number,
 }
 
 
 export interface CourseProgressInterface extends Document {
     userId: ObjectId,
     courseId: ObjectId,
-    lectureProgress: [{ lectureId: ObjectId, progress: number }]
+    lectureProgress: LectureProgressInterface[]
     progress: number
     certificateUrl: string
 }

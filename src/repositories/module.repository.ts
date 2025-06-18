@@ -14,7 +14,7 @@ class ModuleRepository {
                         populate: { path: 'resources' }
                       });
             return modules
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -40,7 +40,7 @@ class ModuleRepository {
                 });
             
             return module
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -57,7 +57,7 @@ class ModuleRepository {
             await module.save()
             
             return module
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -84,7 +84,7 @@ class ModuleRepository {
             const status = await Module.deleteOne({_id})
             console.log(status)
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }

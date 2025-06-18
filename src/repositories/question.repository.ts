@@ -10,7 +10,7 @@ class QuestionRepository {
         try{
             const questions = await Question.find()
             return questions
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -35,7 +35,7 @@ class QuestionRepository {
                     }
                 });
             return quest
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -57,7 +57,7 @@ class QuestionRepository {
                             }
                         });
             return quest
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
@@ -80,7 +80,7 @@ class QuestionRepository {
 
             const status = await Question.deleteOne({_id})
             return status
-        }catch(error){
+        } catch(error: any){
             throw new ErrorResponse(error.message, 400)
         }
     }
